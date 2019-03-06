@@ -1,0 +1,28 @@
+jenkins:
+  systemMessage: |
+    Jenkins configured automatically.
+    If you find issues, please open a pull request against this repository:
+    https://github.com/thenickfish/jenkins
+  numExecutors: 5
+  scmCheckoutRetryCount: 2
+  mode: NORMAL
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: ${jenkins_admin_password}
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: 'awesome-lib'
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: 'https://github.com/jenkins-infra/pipeline-library.git'
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/bin/git

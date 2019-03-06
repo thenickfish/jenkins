@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  jenkins:
+    image: thenickfish-jenkins
+    ports:
+      - '8080:8080'
+    secrets:
+      - jenkins_admin_password
+    deploy:
+      mode: replicated
+      replicas: 1
+secrets:
+  jenkins_admin_password:
+    external: true
